@@ -31,16 +31,19 @@
             label1 = new Label();
             panel1 = new Panel();
             label2 = new Label();
-            textBox1 = new TextBox();
+            ownerTxt = new TextBox();
             createAccountBtn = new Button();
             dataGridView1 = new DataGridView();
-            numericUpDown1 = new NumericUpDown();
+            amountNum = new NumericUpDown();
             label3 = new Label();
             depositBtn = new Button();
             withdrawBtn = new Button();
+            label4 = new Label();
+            interestRate = new NumericUpDown();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)amountNum).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)interestRate).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -75,23 +78,24 @@
             label2.TabIndex = 2;
             label2.Text = "Owner :";
             // 
-            // textBox1
+            // ownerTxt
             // 
-            textBox1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(126, 103);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(187, 32);
-            textBox1.TabIndex = 1;
+            ownerTxt.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ownerTxt.Location = new Point(126, 103);
+            ownerTxt.Name = "ownerTxt";
+            ownerTxt.Size = new Size(187, 32);
+            ownerTxt.TabIndex = 1;
             // 
             // createAccountBtn
             // 
             createAccountBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createAccountBtn.Location = new Point(67, 163);
+            createAccountBtn.Location = new Point(149, 208);
             createAccountBtn.Name = "createAccountBtn";
             createAccountBtn.Size = new Size(164, 41);
             createAccountBtn.TabIndex = 2;
             createAccountBtn.Text = "Create Account";
             createAccountBtn.UseVisualStyleBackColor = true;
+            createAccountBtn.Click += createAccountBtn_Click;
             // 
             // dataGridView1
             // 
@@ -103,14 +107,14 @@
             dataGridView1.Size = new Size(441, 257);
             dataGridView1.TabIndex = 5;
             // 
-            // numericUpDown1
+            // amountNum
             // 
-            numericUpDown1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            numericUpDown1.Location = new Point(126, 382);
-            numericUpDown1.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(187, 32);
-            numericUpDown1.TabIndex = 3;
+            amountNum.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            amountNum.Location = new Point(126, 382);
+            amountNum.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
+            amountNum.Name = "amountNum";
+            amountNum.Size = new Size(187, 32);
+            amountNum.TabIndex = 3;
             // 
             // label3
             // 
@@ -131,6 +135,7 @@
             depositBtn.TabIndex = 4;
             depositBtn.Text = "Deposit";
             depositBtn.UseVisualStyleBackColor = true;
+            depositBtn.Click += depositBtn_Click;
             // 
             // withdrawBtn
             // 
@@ -141,6 +146,26 @@
             withdrawBtn.TabIndex = 5;
             withdrawBtn.Text = "Withdraw";
             withdrawBtn.UseVisualStyleBackColor = true;
+            withdrawBtn.Click += withdrawBtn_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(28, 157);
+            label4.Name = "label4";
+            label4.Size = new Size(169, 24);
+            label4.TabIndex = 9;
+            label4.Text = "Interest Rate (%)";
+            // 
+            // interestRate
+            // 
+            interestRate.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            interestRate.Location = new Point(230, 155);
+            interestRate.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
+            interestRate.Name = "interestRate";
+            interestRate.Size = new Size(83, 32);
+            interestRate.TabIndex = 8;
             // 
             // Form1
             // 
@@ -148,13 +173,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
             ClientSize = new Size(800, 450);
+            Controls.Add(label4);
+            Controls.Add(interestRate);
             Controls.Add(withdrawBtn);
             Controls.Add(depositBtn);
             Controls.Add(label3);
-            Controls.Add(numericUpDown1);
+            Controls.Add(amountNum);
             Controls.Add(dataGridView1);
             Controls.Add(createAccountBtn);
-            Controls.Add(textBox1);
+            Controls.Add(ownerTxt);
             Controls.Add(label2);
             Controls.Add(panel1);
             Name = "Form1";
@@ -162,7 +189,8 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)amountNum).EndInit();
+            ((System.ComponentModel.ISupportInitialize)interestRate).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -172,12 +200,14 @@
         private Label label1;
         private Panel panel1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox ownerTxt;
         private Button createAccountBtn;
         private DataGridView dataGridView1;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown amountNum;
         private Label label3;
         private Button depositBtn;
         private Button withdrawBtn;
+        private Label label4;
+        private NumericUpDown interestRate;
     }
 }
